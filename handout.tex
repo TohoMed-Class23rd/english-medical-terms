@@ -1,0 +1,435 @@
+\documentclass[a4paper,12pt]{ltjsarticle}
+\usepackage[top=25truemm,bottom=17truemm,left=11truemm,right=11truemm]{geometry}
+\usepackage[version=4]{mhchem}
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{randomshuffle}
+\usepackage{paralist}
+\usepackage{tikz}
+
+\usepackage{luatexja-otf}
+\usepackage[no-math]{luatexja-fontspec}
+\setmainjfont[BoldFont=HiraMinProN-W6]{HiraMinProN-W3}
+\setsansjfont[BoldFont=HiraginoSans-W6]{HiraginoSans-W3}
+\setsansfont{Helvetica}
+\newfontfamily{\rfamily}[Renderer=Basic, Ligatures=TeX]{SFProRounded-Regular}
+
+\makeatletter
+
+\newcount\problemAnum
+\newcount\problemBnum
+
+\newcommand{\stamp}[2]{%
+\begin{tikzpicture}[baseline=(A.base),font=\sffamily]
+  \node[draw=#1, rectangle, rounded corners=2pt,
+        text=#1, solid,
+        fill=#1!10!white,
+        line width=.4pt, inner sep=1pt, outer sep=0pt
+        ] (A) {\bfseries\small #2};
+\end{tikzpicture}
+}
+
+\def\addProblemA#1#2{%
+  \advance\problemAnum\@ne
+  \@namedef{problemA\the\problemAnum}{#1}%
+  \@namedef{answerA\the\problemAnum}{#2}%
+}
+\def\addProblemB#1#2{%
+  \advance\problemBnum\@ne
+  \@namedef{problemB\the\problemBnum}{#1}%
+  \@namedef{answerB\the\problemBnum}{#2}%
+}
+
+\def\printProblemA#1{\@nameuse{problemA\shuffledA{#1}}}
+\def\printAnswerA#1{\@nameuse{answerA\shuffledA{#1}}}
+\def\printProblemB#1{\@nameuse{problemB\shuffledB{#1}}}
+\def\printAnswerB#1{\@nameuse{answerB\shuffledB{#1}}}
+
+\makeatother
+
+
+\newcommand{\subject}{科目名}
+\newcommand{\prefix}{\stamp{ForestGreen}{接頭語}}
+\newcommand{\suffix}{\stamp{MidnightBlue}{接尾語}}
+
+\columnseprule=0.2mm
+
+\pagestyle{fancy}
+\rhead{Name :\hspace{5cm} Score :\hspace{15mm}/15}
+\cfoot{\sffamily パターン\thepage}
+
+\addProblemA{\prefix (Process of) viewing}{-opsy}
+\addProblemA{\prefix (to) record}{-gram}
+\addProblemA{\prefix abnormal condition}{-osis}
+\addProblemA{\prefix blood condition}{-emia}
+\addProblemA{\prefix cell}{-cyte}
+\addProblemA{\prefix condition}{-ia}
+\addProblemA{\prefix condition of pain}{-algia}
+\addProblemA{\prefix condition, process}{-ism}
+\addProblemA{\prefix condition, process}{-y}
+\addProblemA{\prefix cutting into an organ}{-section}
+\addProblemA{\prefix cutting out; removal, excision}{-ectomy}
+\addProblemA{\prefix excessive, abnormal flow}{-rrhage}
+\addProblemA{\prefix inflammation}{-itis}
+\addProblemA{\prefix instrument for visual examination}{-scope}
+\addProblemA{\prefix knowledge}{-gnosis}
+\addProblemA{\prefix mass, tumor}{-oma}
+\addProblemA{\prefix measurement}{-meter}
+\addProblemA{\prefix Pertaining to}{-al}
+\addProblemA{\prefix pertaining to}{-ic}
+\addProblemA{\prefix pertaining to blood vessels}{-vascular}
+\addProblemA{\prefix process of cutting into, incision}{-tomy}
+\addProblemA{\prefix process of visually examining}{-scopy}
+\addProblemA{\prefix producing}{-genic}
+\addProblemA{\prefix protein}{-globin}
+\addProblemA{\prefix specialist}{-ist}
+\addProblemA{\prefix specialist in the study of}{-logist}
+\addProblemA{\prefix state}{-is}
+\addProblemA{\prefix state of}{-sis}
+\addProblemA{\prefix structure}{-um}
+\addProblemA{\prefix study of}{-logy}
+\addProblemA{\suffix abdomen (area between the chest and hip)}{lapar/o}
+\addProblemA{\suffix above, upon, on}{epi-}
+\addProblemA{\suffix across, through}{trans-}
+\addProblemA{\suffix all}{pan-}
+\addProblemA{\suffix back}{re-}
+\addProblemA{\suffix bad, painful, difficult, abnormal}{dys-}
+\addProblemA{\suffix before, forward}{pro-}
+\addProblemA{\suffix behind}{retro-}
+\addProblemA{\suffix below, less than normal, under}{hypo-}
+\addProblemA{\suffix blood}{hem/o, hemat/o}
+\addProblemA{\suffix bone}{oste/o}
+\addProblemA{\suffix brain}{encephal/o}
+\addProblemA{\suffix cancerous, cancer}{carcin/o}
+\addProblemA{\suffix cell}{cyt/o}
+\addProblemA{\suffix cerebrum (largest part of the brain)}{cerebr/o}
+\addProblemA{\suffix clotting}{thromb/o}
+\addProblemA{\suffix colon, large intestine}{col/o, colon/o}
+\addProblemA{\suffix disease}{path/o}
+\addProblemA{\suffix electricity}{electr/o}
+\addProblemA{\suffix excessive, more than normal, too much}{hyper-}
+\addProblemA{\suffix eye}{ophthalm/o}
+\addProblemA{\suffix flesh}{sarc/o}
+\addProblemA{\suffix flow or watery discharge, which was once thought to cause aches and pains, especially in joints}{rheumat/o}
+\addProblemA{\suffix gland}{aden/o}
+\addProblemA{\suffix head}{cephal/o}
+\addProblemA{\suffix heart}{cardi/o}
+\addProblemA{\suffix intestines (usually the small intestine)}{enter/o}
+\addProblemA{\suffix joint}{arthr/o}
+\addProblemA{\suffix kidney}{ren/o}
+\addProblemA{\suffix kidney (used for abnormal conditions and procedures)}{nephr/o}
+\addProblemA{\suffix knowledge}{gnos/o}
+\addProblemA{\suffix life}{bi/o}
+\addProblemA{\suffix liver}{hepat/o}
+\addProblemA{\suffix mind}{psych/o}
+\addProblemA{\suffix nerve}{neur/o}
+\addProblemA{\suffix nose}{rhin/o}
+\addProblemA{\suffix not, without}{a-, an-}
+\addProblemA{\suffix outside}{exo-}
+\addProblemA{\suffix people}{dem/o}
+\addProblemA{\suffix red}{erythr/o}
+\addProblemA{\suffix self}{aut/o}
+\addProblemA{\suffix skin}{derm/o}
+\addProblemA{\suffix skin}{dermat/o}
+\addProblemA{\suffix stomach}{gastr/o}
+\addProblemA{\suffix sugar}{glyc/o}
+\addProblemA{\suffix surrounding}{peri-}
+\addProblemA{\suffix through, across, complete}{dia-}
+\addProblemA{\suffix to secrete}{crin/o}
+\addProblemA{\suffix tumor (cancerous)}{onc/o}
+\addProblemA{\suffix under, below}{sub-}
+\addProblemA{\suffix urinary bladder}{cyst/o}
+\addProblemA{\suffix urine}{uro-}
+\addProblemA{\suffix viewing}{ops-}
+\addProblemA{\suffix white}{leuk/o}
+\addProblemA{\suffix within}{endo-}
+\addProblemA{\suffix woman, female}{gynec/o}
+
+\addProblemB{tumor of a gland}{adenoma 腺癌}
+\addProblemB{inflammation of a gland}{adenitis 腺炎}
+\addProblemB{inflammation of a joint}{arthritis 関節炎}
+\addProblemB{The study of life}{Biology 生物学}
+\addProblemB{living tissue is removed and viewed under a microscope}{biopsy 生体検査}
+\addProblemB{cancerous tumor}{carcinoma 癌腫}
+\addProblemB{study of the heart}{cardiology 心臓病学}
+\addProblemB{Pertaining to the head}{cephalic 頭部の}
+\addProblemB{pertaining to the cerebrum}{cerebral 脳の}
+\addProblemB{a.k.a. "Stroke". Lack of blood supply to the brain causing brain damage}{cerebrovascular accident (CVA) 脳血管障害(脳卒中)}
+\addProblemB{instrument used to examine the urinary bladder}{Cystoscope 膀胱鏡}
+\addProblemB{study of cells}{Cytology 細胞学}
+\addProblemB{pertaining to the skin}{Dermal 真皮}
+\addProblemB{inflammation of the skin}{dermatitis 皮膚炎}
+\addProblemB{A recording of the electricity in the heart, EKG is an older abbreviation for this test}{Electrocardiogram (ECG) 心電図}
+\addProblemB{Largest part of the brain; responsible for voluntary muscular activity, vision, speech, taste, hearing, thought, and memory}{Cerebrum 大脳}
+\addProblemB{the "little brain" at the rear of the brainstem; functions include processing sensory input and coordinating movement output and balance}{Cerebellum 小脳}
+\addProblemB{a pair of endocrine glands that sit just above the kidneys and secrete hormones (epinephrine and norepinephrine) that help arouse the body in times of stress}{adrenal glands 副腎}
+\addProblemB{Filter blood from the renal arteries and produce urine as waste}{kidneys 腎臓}
+\addProblemB{The tubes that carry urine from the kidneys to the bladder}{ureters 尿管}
+\addProblemB{stores urine}{urinary bladder 膀胱}
+\addProblemB{A gland in males that contributes to the seminal fluid}{prostate gland 前立腺}
+\addProblemB{tube leading from the urinary bladder to the outside of the body}{urethra 尿道}
+\addProblemB{Female organ of reproduction used to house the developing fetus}{uterus 子宮}
+\addProblemB{the final section of the large intestine, terminating at the anus}{rectum 直腸}
+\addProblemB{A muscular, elastic passageway that extends from the uterus to the outside of the body}{vagina 膣}
+\addProblemB{Tube connecting the mouth to the stomach}{esophagus 食道}
+\addProblemB{a large membranous tube reinforced by rings of cartilage, extending from the larynx to the bronchial tubes and conveying air to and from the lungs; the windpipe.}{trachea}
+\addProblemB{An organ found in air-breathing vertebrates that exchanges oxygen and carbon dioxide with the blood 肺}{lung 気管}
+\addProblemB{Large, flat muscle at the bottom of the chest cavity that helps with breathing}{diaphragm 横隔膜}
+\addProblemB{Organ near the stomach that produces, stores, and eliminates blood cells}{spleen 脾臓}
+\addProblemB{produces bile }{liver 肝臓}
+\addProblemB{large muscular sac that continues the mechanical and chemical digestion of food}{stomach 胃}
+\addProblemB{stores bile}{Gallbladder 胆嚢}
+\addProblemB{An organs in the abdominal cavity with two roles. The first is an exocrine role: to produce digestive enzymes and bicarbonate, which are delivered to the small intestine via the pancreatic duct. The second is an endocrine role: to secrete insulin and glucagon into the bloodstream to help regulate blood glucose levels.}{pancreas 膵臓}
+\addProblemB{first part of the small intestine}{duodenum 十二指腸}
+\addProblemB{second part of the small intestine}{jejunum 空腸}
+\addProblemB{third part of the small intestine}{ileum 回腸}
+\addProblemB{large intestine}{colon 結腸}
+\addProblemB{record of the electrical activity of the brain}{Electroencephalogram (EEG) 脳波図}
+\addProblemB{inflammation of the small intestine}{enteritis 腸炎}
+\addProblemB{red blood cell}{erythrocyte 赤血球}
+\addProblemB{white blood cell}{leukocyte 白血球}
+\addProblemB{white blood cell containing granules that stain red; associated with allergic reactions}{eosinophil 好酸球}
+\addProblemB{white blood cell containing granules that stain blue; associated with release of histamine and heparin}{basophil 好塩基球}
+\addProblemB{A type of white blood cell that engulfs invading microbes and contributes to the nonspecific defenses of the body against disease}{neutrophil 好中球}
+\addProblemB{A type of white blood cell that make antibodies to fight off infections}{lymphocyte リンパ球}
+\addProblemB{an agranulocytic leukocyte that performs phagocytosis to fight infection}{monocyte 単球}
+\addProblemB{a clotting cell; a platelet}{thrombocyte 血小板}
+\addProblemB{instrument used for visual examination of the stomach}{gastroscope 胃カメラ}
+\addProblemB{visual examination of the stomach}{gastroscopy 胃カメラ検査法}
+\addProblemB{complete knowledge of patient's condition 診断}{diagnosis 診断}
+\addProblemB{a prediction of the course of a disease}{prognosis 予後}
+\addProblemB{study of the female reproductive system and its diseases}{gynecology 婦人学}
+\addProblemB{A doctor who specializes in the female reproductive system}{gynecologist 産婦人科}
+\addProblemB{An iron-containing protein in red blood cells that reversibly binds oxygen}{hemoglobin ヘモグロビン}
+\addProblemB{a solid swelling of clotted blood within the tissues. It often results from trauma and it's commonly called a bruise or "black-and-blue" mark. Be careful this is not a tumors. In this case -oma indicates a mass or swelling containing blood}{hematoma 血腫}
+\addProblemB{inflammation of the liver}{hepatitis 肝炎}
+\addProblemB{incision into the abdomen}{laparotomy 開腹術}
+\addProblemB{visual examination of the abdomen}{laparoscopy 腹腔鏡下手術}
+\addProblemB{instrument used for visual examination of the abdominal cavity}{laparoscope 腹腔鏡}
+\addProblemB{surgical removal of a kidney }{nephrectomy 腎摘出術}
+\addProblemB{study of the nervous system}{neurology 神経学}
+\addProblemB{a physician who studies and treats cancerous tumors}{oncologist 腫瘍学者}
+\addProblemB{instrument used to examine the interior of the eye}{ophthalamoscope 検眼鏡}
+\addProblemB{eye doctor}{ophthalmologist 眼科医}
+\addProblemB{Light sensitive layer of the eye; contains rods and cones}{retina 網膜}
+\addProblemB{inflammation of the bone and joint}{osteoarthritis 骨関節炎}
+\addProblemB{malignant tumor of the bone}{osteosarcoma 骨肉腫}
+\addProblemB{A connective tissue that is more flexible than bone and that protects the ends of bones and keeps them from rubbing together.}{cartilage 軟骨}
+\addProblemB{specialist in the study of disease}{pathologist 病理学者}
+\addProblemB{abnormal condition of the mind}{psychosis 精神病}
+\addProblemB{Unreal sensory perceptions, such as hearing voices when none are present}{hallucinations 幻覚}
+\addProblemB{Fixed, false beliefs that can't be changed by logical reasoning}{delusions 妄想}
+\addProblemB{pertaining to the kidney}{renal 腎臓の}
+\addProblemB{inflammation of the nose}{rhinitis 鼻炎}
+\addProblemB{malignant tumor of connective tissue}{sarcoma 肉腫}
+\addProblemB{an official who investigates violent, sudden, or suspicious deaths.}{coroner 検死官}
+\addProblemB{a cell fragment that plays an important part in forming blood clots a.k.a. Thrombocyte}{platelet 血小板}
+\addProblemB{abnormal condition of a blood clot}{thrombosis 血栓症}
+\addProblemB{blood clot}{thrombus 血栓}
+\addProblemB{pertaining to the nerves}{neural 神経の}
+\addProblemB{pain in a joint}{athralgia 関節痛}
+\addProblemB{surgical removal of the stomach}{gastrectomy 胃切除術}
+\addProblemB{cancer of white blood cells}{leukemia 白血病}
+\addProblemB{x-ray record of a joint}{arthrogram 関節撮影検査}
+\addProblemB{pain in a nerve}{neuralgia 神経痛}
+\addProblemB{pertaining to the stomach}{gastric 胃の}
+\addProblemB{excessive activity of the thyroid gland (graves disease)}{hyperthyroidism 甲状腺機能亢進症、バセドウ病}
+\addProblemB{inflammation of the stomach and intestines}{gastroenteritis 胃腸炎}
+\addProblemB{a physician who treats physical disorders of the nervous system}{neurologist 神経学者}
+\addProblemB{study of the kidney and its diseases}{nephrology 腎臓学}
+\addProblemB{tumor of the liver 肝癌}{hepatoma}
+\addProblemB{abnormal condition of the kidney}{nephrosis ネフローゼ}
+\addProblemB{increase in the number of white blood cells}{leukocytosis 白血球増加症}
+\addProblemB{visual examination of a joint}{arthroscopy 関節鏡検査}
+\addProblemB{incision into a nerve}{neurotomy 神経切離術}
+\addProblemB{tubes which carry eggs from the ovaries to the uterus and which provides the place where fertilization occurs}{fallopian tubes 卵管}
+\addProblemB{tube placed into the uterus to manipulate the uterus during the procedure}{uterine cannula 子宮内カテーテル}
+\addProblemB{an instrument used to dilate the vagina during a pelvic examination}{vaginal speculum 膣鏡}
+\addProblemB{a deficiency of red blood cells}{anemia 貧血}
+\addProblemB{An examination of the body after death usually with such dissection as will expose the vital organs for determining the cause of death}{autopsy 死体解剖}
+\addProblemB{A straight line passing from side to side through the center of a circle or sphere}{diameter 直径}
+\addProblemB{condition of painful intestines}{dysentery 赤痢}
+\addProblemB{Glands that secrete or release chemicals that are used inside the body. c.f.) thyroid gland, pituitary gland, adrenal glands, ovaries, and testes.}{endocrine glands 内分泌腺}
+\addProblemB{inner lining of the heart}{endocardium 心内膜}
+\addProblemB{pertaining to above the stomach}{epigastric 上腹部の}
+\addProblemB{high blood sugar}{hyperglycemia 高血糖症}
+\addProblemB{low blood sugar }{hypoglycemia 低血糖症}
+\addProblemB{worldwide epidemic of a disease}{pandemic 全国的に広がる}
+\addProblemB{A widespread outbreak of an infectious disease}{epidemic 流行性の}
+\addProblemB{Membrane surrounding the heart }{pericardium 心膜}
+\addProblemB{removal of part or all of a structure, organ, or tissue }{resection 切除}
+\addProblemB{pertaining to behind the stomach }{retrogastric 胃の後方の}
+\addProblemB{pertaining to under the liver }{subhepatic 肝臓下部の}
+\addProblemB{pertaining to through the skin}{transdermal 経皮性の}
+\addProblemB{pertaining to through the urethra}{transurethral 経尿道の}
+\addProblemB{The resectoscope contains a light, valves for controlling irrigating fluid, and an electrical loop that cuts tissue and seals blood vessels}{transurethral resection of the prostate (TURP) 経尿道的前立腺切除術}
+\addProblemB{study of the skin 皮膚学}{dermatology}
+\addProblemB{study of the endocrine glands}{endocrinology 内分泌学}
+\addProblemB{study of the stomach and intestines}{gastroenterology 消化器学}
+\addProblemB{study of blood}{hematology 血液学}
+\addProblemB{study of tumors (cancerous or malignant diseases)}{oncology 腫瘍学}
+\addProblemB{study of the eye }{ophthalmology 眼科}
+\addProblemB{study of disease}{pathology 病理学}
+\addProblemB{study of the mind and mental disorders}{psychology 心理学}
+\addProblemB{study of joint diseases}{rheumatology リウマチ学}
+\addProblemB{study of the urinary tract (surgical specialty)}{urology 泌尿器学}
+\addProblemB{midbrain, pons, medulla oblongata}{brain stem 脳幹}
+\addProblemB{A small part of the brain above the pons that integrates sensory information and relays it upward.}{midbrain 中脳}
+\addProblemB{the part of the brainstem that links the medulla oblongata and the thalamus. itrelays information from the cerebellum to the rest of the brain}{pons 橋}
+\addProblemB{Part of the brainstem that controls vital life-sustaining functions such as heartbeat, breathing, blood pressure, and digestion.}{medulla (oblongata) 延髄}
+\addProblemB{a rise in the temperature of the body }{fever 熱}
+\addProblemB{a condition in which your throat is red and feels painful, especially when you swallow }{sore throat 喉の痛み}
+\addProblemB{a nose that has liquid coming out of it }{runny nose 鼻水}
+\addProblemB{feeling of being tired all the time}{persistence fatigue 断続的な疲労感}
+\addProblemB{black and blue marks; clotted blood beneath skin contusions, hematoma}{brusises 痣}
+\addProblemB{arms and legs, limbs}{extremities 四肢}
+\addProblemB{condition of being red }{erythematous 赤み}
+\addProblemB{throat}{Pharynx 咽頭}
+\addProblemB{Oral Leukoplakia (oral = mouth, plakia = plaques, leuk/o = white)}{white plaques on the mucosa of the mouth 白斑}
+\addProblemB{masses of lymphatic tissue in the back of the oropharynx }{tonsils 扁桃腺}
+\addProblemB{light color, blue-ish color }{pale 青白い}
+\addProblemB{tissue covering the process of the jaws}{gums 歯茎}
+\addProblemB{fleshy structures surrounding the mouth}{lips 唇}
+\addProblemB{the vascular epidermis upon which most of the fingernails or toenails rests has a longitudinally ridged surface often visible through the nail}{nail beds}
+\addProblemB{autopsy}{necropsy}
+\addProblemB{eye doctor}{ophthalmologist}
+\addProblemB{Feeling of being tiered all the time}{Persistent Fatigue}
+\addProblemB{inflammation of the pharynx}{pharyngitis}
+\addProblemB{the endocrine system's most influential gland. Under the influence of the hypothalamus, the pituitary regulates growth and controls other endocrine glands}{pituitary gland}
+
+\newcommand{\page}{
+\randomshuffle[name=shuffledA]{1}{\problemAnum}
+\randomshuffle[name=shuffledB]{1}{\problemBnum}
+\begin{enumerate}
+  \setlength{\itemsep}{5mm}
+  \item \printProblemA{1}\hfill \printAnswerA{1}
+  \item \printProblemA{2}\hfill \printAnswerA{2}
+  \item \printProblemA{3}\hfill \printAnswerA{3}
+  \item \printProblemA{4}\hfill \printAnswerA{4}
+  \item \printProblemA{5}\hfill \printAnswerA{5}
+  \item \printProblemA{6}\hfill \printAnswerA{6}
+  \item \printProblemA{7}\hfill \printAnswerA{7}
+  \item \printProblemA{8}\hfill \printAnswerA{8}
+  \item \printProblemA{9}\hfill \printAnswerA{9}
+  \item \printProblemA{10}\hfill \printAnswerA{10}
+  \item \printProblemB{1}
+  \setlength{\itemsep}{10mm}
+  \item \printProblemB{2}
+  \item \printProblemB{3}
+  \item \printProblemB{4}
+  \item \printProblemB{5}
+\end{enumerate}
+\vfill
+\begin{inparaenum}
+  \item \printAnswerB{1}
+  \item \printAnswerB{2}
+  \item \printAnswerB{3}
+  \item \printAnswerB{4}
+  \item \printAnswerB{5}
+\end{inparaenum}
+}
+\begin{document}
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\page \newpage
+\end{document}
